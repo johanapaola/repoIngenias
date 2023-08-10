@@ -6,10 +6,10 @@ trabajoEnEquipoDeIngenias
 ApiRest de consultas de películas y series---> Trailerflix 
 
 Integrantes: 
-Johana Segovia	
-Nazarena Gabriela	macre
-Lourdes Melina Nuñez
-Carla	Parise
+Johana Segovia,	
+Nazarena Macre,
+Lourdes Nuñez,
+Carla	Parise,
 Luciana	Zaracho
 
 
