@@ -1,19 +1,22 @@
-# repoIngenias - Grupo 7- BackEnd Ingenias+
-trabajoEnEquipoDeIngenias
+#  Grupo 7- BackEnd Ingenias+
+### trabajoEnEquipoDeIngenias
 
 
 
 ApiRest de consultas de películas y series---> Trailerflix 
 
-Integrantes: 
+$$
+ Integrantes: 
 Johana Segovia,	
 Nazarena Macre,
 Lourdes Nuñez,
-Carla	Parise,
+Carla Parise,
 Luciana	Zaracho
 
+$$
+-----------------------------xox-----------------------------
 
-Sprint 1:
+**Sprint 1:**
 Crear Endpoints a partir de un JSON:
 
 >/catalogo que liste todo el contenido de trailerflix JSON
