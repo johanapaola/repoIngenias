@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {getMovies, moviesByTitle, moviesByCategory} = require("../controllers")
+const {getMovies, moviesByTitle, moviesByCategory, movieById} = require("../controllers")
 
 
 
@@ -49,8 +49,20 @@ router.get('/categoria/:cat', async (req, res) => {
    
 });
 
-router.get('/trailer/:id', (req, res) => {
+router.get('/trailer/:id', async(req, res) => {
    // que retorne la URL del trailer de la película o serie. Si ésta no posee video asociado, que retorne un mensaje en formato JSON notificando la no disponibilidad del mismo.
+   try {
+    const allMovies = await getMovies();
+    const { id } = req.params;
+    const movie = movieById(id, allMovies);
+
+    movie && movie.trailer? 
+      res.status(200).json({ trailerUrl: movie.trailer })
+      :res.status(400).json({ error: "No se encontró tráiler para esta peli o serie" });
+    
+  } catch (error) {
+    res.status(400).json({error:error.message})
+  } 
 });
 
 router.get('/reparto/:act', (req, res) => {
