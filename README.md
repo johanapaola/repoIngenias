@@ -13,10 +13,10 @@ ApiRest de consultas de películas y series---> Trailerflix
 
 
 
-##Requerimientos básicos:
+Requerimientos básicos:
 >Node.js
 
-##Instalar dependencias:
+Instalar dependencias:
 >npm install
 >
 >dotenv
