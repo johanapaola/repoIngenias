@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {getMovies, moviesByTitle} = require("../controllers")
+const {getMovies, moviesByTitle, moviesByCategory} = require("../controllers")
 
 
 
@@ -26,7 +26,7 @@ router.get('/titulo/:title', async (req, res) => {
 //  console.log(allMovies)
  const { title } = req.params
  const movie = moviesByTitle( title, allMovies);
- movie?res.status(200).json(movie) : res.status(400).json({ error: "No se encontró película o serie con ese  nombre"});
+ movie?res.status(200).json(movie) : res.status(400).json({ error: `No se encontró película o serie con el nombre ${title}`});
  } catch (error) {
   res.status(400).json({error:error.message})
  }
@@ -36,8 +36,17 @@ router.get('/titulo/:title', async (req, res) => {
  
 });
 
-router.get('/categoria/:cat', (req, res) => {
+router.get('/categoria/:cat', async (req, res) => {
    //que liste todo el contenido del archivo JSON de acuerdo a la categoría enviada como parámetro (serie o película)
+  try {
+    const allMovies = await getMovies();
+    const { cat } = req.params;
+    const moviesCategories = moviesByCategory( cat, allMovies);
+    moviesCategories?res.status(200).json(moviesCategories) : res.status(400).json({ error:`No se encontraron películas o series en la categoría ${cat}`});
+  } catch (error) {
+    res.status(400).json({error:error.message})
+  } 
+   
 });
 
 router.get('/trailer/:id', (req, res) => {
