@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {getMovies} = require("../controllers")
+const {getMovies, moviesByTitle} = require("../controllers")
 
 
 
@@ -19,9 +19,20 @@ router.get('/catalogo',async(req, res) => {
 });
 
 
-router.get('/titulo/:title', (req, res) => {
+router.get('/titulo/:title', async (req, res) => {
  //que liste el catálogo de películas y/o series que se aproxime al título enviado. (la búsqueda del nombre debe ser parcial)
-
+ try {
+  const allMovies = await getMovies();
+//  console.log(allMovies)
+ const { title } = req.params
+ const movie = moviesByTitle( title, allMovies);
+ movie?res.status(200).json(movie) : res.status(400).json({ error: "No se encontró película o serie con ese  nombre"});
+ } catch (error) {
+  res.status(400).json({error:error.message})
+ }
+ 
+  
+ 
  
 });
 

@@ -9,6 +9,14 @@ const getMovies = async () => {
    
 };
 
+const moviesByTitle = (title, allMovies) =>{
+    console.log(allMovies)
+
+    const matchMovies = allMovies.filter (m=>m.titulo?.toLowerCase().includes(title.toLowerCase()));
+
+  
+    return matchMovies;
+}
 
 
 
@@ -23,5 +31,6 @@ const getMovies = async () => {
 
 
 module.exports = {
-    getMovies
+    getMovies,
+    moviesByTitle
 }
