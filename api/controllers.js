@@ -38,6 +38,14 @@ const movieById= (id, allMovies)=>{
     return allMovies.find(m => m.id === movieId);
 }
 
+//funcion que busca del catalogo todas aquellas pelis o series que coincida el id que viene por params con el id de la peli y luego ene l handler devuelva su trailer en el caso de haber uno---- Fallaba, faltaba parsear el id que veine ya que se envia comom string y no coincide con el numero del catalogo---------------->
+const moviesByActor= (act, allMovies)=>{
+    const actorNormalizado= normalizeString(act);
+    return allMovies.filter(m => {
+        return (normalizeString(m.reparto)).includes(actorNormalizado);
+        
+    });
+}
 
 
 
@@ -51,5 +59,6 @@ module.exports = {
     getMovies,
     moviesByTitle,
     moviesByCategory,
-    movieById
+    movieById,
+    moviesByActor
 }

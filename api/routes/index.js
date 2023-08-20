@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {getMovies, moviesByTitle, moviesByCategory, movieById} = require("../controllers")
+const {getMovies, moviesByTitle, moviesByCategory, movieById, moviesByActor} = require("../controllers")
 
 
 
@@ -58,15 +58,25 @@ router.get('/trailer/:id', async(req, res) => {
 
     movie && movie.trailer? 
       res.status(200).json({ trailerUrl: movie.trailer })
-      :res.status(400).json({ error: "No se encontró tráiler para esta peli o serie" });
+      :res.status(400).json({ error: "No se ha ecnontrado tráiler para esta peli o serie" });
     
   } catch (error) {
     res.status(400).json({error:error.message})
   } 
 });
 
-router.get('/reparto/:act', (req, res) => {
+router.get('/reparto/:act', async (req, res) => {
     //que liste el catálogo que incluya a la actriz o actor indicado por el nombre. (la búsqueda del nombre debe ser parcial)
+const allMovies = await getMovies();
+    try{
+    const {act} = req.params
+    const moviesActor = moviesByActor(act, allMovies);
+    moviesActor? res.status(200).json(moviesActor):
+    res.status(404).json({ error: `No se han encontradp pelis o series con el actor${act}` })
+  
+} catch (error) {
+    res.status(400).json({ error: error.message });
+}
 });
 
 
