@@ -2,13 +2,27 @@
 const express = require('express');
 const router = express.Router();
 
+const {getMovies} = require("../controllers")
 
 
-router.get('/catalogo', (req, res) => {
+
+router.get('/catalogo',async(req, res) => {
+
  //que liste todo el contenido de trailerflix JSON
+ try {
+   const movies = await getMovies();
+   res.status(200).json(movies); 
+ } catch (error) {
+   res.status(400).json({error:error.message})
+ }
+ 
 });
+
+
 router.get('/titulo/:title', (req, res) => {
  //que liste el catálogo de películas y/o series que se aproxime al título enviado. (la búsqueda del nombre debe ser parcial)
+
+ 
 });
 
 router.get('/categoria/:cat', (req, res) => {
