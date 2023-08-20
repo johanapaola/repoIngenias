@@ -16,7 +16,9 @@ const moviesByTitle = (title, allMovies) =>{
 
   
     return matchMovies;
-}
+};
+
+
 
 
 
