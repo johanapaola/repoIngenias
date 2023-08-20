@@ -3,16 +3,26 @@
 
 ApiRest de consultas de películas y series---> Trailerflix 
 
-$$
+
  Integrantes: 
-Johana Segovia,	
-Carla Parise,
-Luciana	Zaracho
-$$
-Requerimientos básicos:
-Node.js
-Instalar dependencias:
-npm install
+>Johana Segovia,
+>	 
+>Carla Parise,
+>
+>Luciana	Zaracho 
+
+
+
+##Requerimientos básicos:
+>Node.js
+
+##Instalar dependencias:
+>npm install
+>
+>dotenv
+>
+>express 
+
 -----------------------------xox-----------------------------
 
 **Sprint 1:**
