@@ -1,19 +1,18 @@
 #  Grupo 7- BackEnd Ingenias+
 ### trabajoEnEquipoDeIngenias
 
-
-
 ApiRest de consultas de películas y series---> Trailerflix 
 
 $$
  Integrantes: 
 Johana Segovia,	
-Nazarena Macre,
-Lourdes Nuñez,
 Carla Parise,
 Luciana	Zaracho
-
 $$
+Requerimientos básicos:
+Node.js
+Instalar dependencias:
+npm install
 -----------------------------xox-----------------------------
 
 **Sprint 1:**
